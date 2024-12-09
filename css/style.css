@@ -1,0 +1,694 @@
+@charset "UTF-8";
+/*Обнуление*/
+* {
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+
+*, *:before, *:after {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+:focus, :active {
+  outline: none;
+}
+
+a:focus, a:active {
+  outline: none;
+}
+
+nav, footer, header, aside {
+  display: block;
+}
+
+html, body {
+  height: 100%;
+  width: 100%;
+  font-size: 100%;
+  line-height: 1;
+  font-size: 16px;
+  -ms-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+
+input, button, textarea {
+  font-family: inherit;
+}
+
+input::-ms-clear {
+  display: none;
+}
+
+button {
+  cursor: pointer;
+}
+
+button::-moz-focus-inner {
+  padding: 0;
+  border: 0;
+}
+
+a, a:visited {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+ul li {
+  list-style: none;
+}
+
+img {
+  vertical-align: top;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-size: inherit;
+  font-weight: inherit;
+}
+
+/*--------------------*/
+.ga-maamli-regular {
+  font-family: "Ga Maamli", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.playwrite-nl {
+  font-family: "Playwrite NL", cursive;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.protest-riot-regular {
+  font-family: "Protest Riot", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.caveat {
+  font-family: "Caveat", cursive;
+  font-optical-sizing: auto;
+  font-weight: 900;
+  font-style: normal;
+}
+
+.rubik-bubbles-regular {
+  font-family: "Rubik Bubbles", system-ui;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.playwrite-pe {
+  font-family: "Playwrite PE", cursive;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+[class*=__container] {
+  max-width: 1470px;
+  padding: 0 15px;
+  margin: 0 auto;
+}
+
+.wrapper {
+  background-image: url(../fon/fon3.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.bgc {
+  position: absolute; /* Для наложения на фон */
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255, 0, 255, 0.681); /* Легкий затеняющий цвет */
+  z-index: 8; /* Чтобы затеняющий фон был поверх картинки */
+}
+
+.header {
+  position: fixed;
+  width: 100%;
+  height: 6.25rem;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 5;
+}
+.header__container {
+  position: relative; /* Для позиционирования контента поверх фона */
+  z-index: 10; /* Контент будет сверху затеняющего фона */
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding-top: 1.875rem;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+.header__logo {
+  font-size: 2.5rem;
+  font-family: "Playwrite PE", cursive;
+  text-transform: uppercase;
+  font-weight: 900;
+  text-shadow: 1px 1px 3px rgb(249, 247, 247), 2px 2px 10px greenyellow, 3px 3px 3px rgb(250, 248, 248), -1px -1px 3px black, -2px -2px 11px greenyellow, -3px -3px 3px black;
+}
+.header__nav {
+  font-size: 1.25rem;
+  font-family: "Protest Riot", sans-serif;
+  text-transform: uppercase;
+  font-weight: 900;
+  text-shadow: 1px 1px 3px rgb(249, 247, 247), 2px 2px 1px greenyellow, 3px 3px 3px rgb(250, 248, 248);
+}
+.header__contact {
+  font-size: 1.25rem;
+  font-family: "Protest Riot", sans-serif;
+  text-transform: uppercase;
+  font-weight: 900;
+  text-shadow: 1px 1px 3px rgb(249, 247, 247), 2px 2px 1px greenyellow, 3px 3px 3px rgb(250, 248, 248);
+}
+
+.hero__container {
+  padding: 6.25rem 0;
+}
+.hero__content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding-top: 6.25rem;
+}
+.hero__content span {
+  font-size: 200px;
+  font-weight: 900;
+  font-family: "Ga Maamli", sans-serif;
+  color: greenyellow;
+}
+.hero__content .sp {
+  font-size: 50px;
+}
+.hero__info {
+  margin-top: 3.125rem;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+.hero__info p {
+  color: white;
+  text-align: center;
+  font-size: 20px;
+  font-family: "Rubik Bubbles", system-ui;
+  text-transform: uppercase;
+  font-weight: 400;
+  line-height: 1.5;
+  letter-spacing: 5px;
+  background-color: rgba(255, 254, 254, 0.533);
+  padding: 1.25rem;
+  border-radius: 0.625rem;
+  border: 1px solid rgb(175, 5, 222);
+  text-shadow: 1px 1px 3px black, 2px 2px 1px greenyellow, 3px 3px 3px black, -1px -1px 3px black, -2px -2px 1px greenyellow, -3px -3px 3px black;
+}
+
+.hero__title {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-image: url(../galery/logo5.png);
+  background-repeat: no-repeat;
+  background-size: 60%;
+  background-position: right 0 bottom 0;
+}
+.hero__title h1 {
+  position: relative;
+  margin-top: 3.125rem;
+  font-size: 100px;
+  font-family: "Protest Riot", sans-serif;
+  text-transform: uppercase;
+  font-weight: 900;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: rgb(247, 251, 247);
+  text-shadow: 1px 1px 2px black, 2px 2px 1px greenyellow, 3px 3px 2px black, -1px -1px 2px black, -2px -2px 1px greenyellow, -3px -3px 2px black;
+  letter-spacing: 10px;
+}
+
+.hero--img {
+  position: relative;
+  border: 2px solid rgb(21, 240, 28);
+  width: 9.375rem;
+  border-radius: 50%;
+}
+.hero--img::after {
+  content: "";
+  position: absolute;
+  border: 1px solid rgb(175, 5, 222);
+  border-radius: 50%;
+  width: 10.625rem;
+  height: 10.625rem;
+  top: -10px;
+  left: -10px;
+}
+
+.hero--img img {
+  width: 100%;
+  border-radius: 50%;
+}
+
+.main__galery {
+  padding-bottom: 1.875rem;
+}
+
+.galery__title {
+  position: relative;
+  margin-top: 1.25rem;
+}
+.galery__title img {
+  position: absolute;
+  width: 15%;
+  top: 0;
+  left: 25rem;
+}
+.galery__title h2 {
+  font-size: 6.25rem;
+  text-transform: uppercase;
+  font-weight: 900;
+  font-family: "Ga Maamli", sans-serif;
+  text-align: center;
+  margin-bottom: 1.875rem;
+  letter-spacing: 7px;
+  color: greenyellow;
+  text-shadow: 1px 1px 3px black, 2px 2px 1px greenyellow, 3px 3px 3px black, -1px -1px 3px black, -2px -2px 1px greenyellow, -3px -3px 3px black;
+}
+.galery__box {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  row-gap: 1.875rem;
+  -webkit-column-gap: 1.875rem;
+     -moz-column-gap: 1.875rem;
+          column-gap: 1.875rem;
+  width: 100%;
+  position: relative;
+}
+.galery__box--card {
+  position: relative;
+  width: 440px; /* Устанавливаем фиксированную ширину для блока */
+  height: 37.5rem;
+  overflow: hidden; /* Обрезаем всё, что выходит за пределы блока */
+  border-radius: 20px;
+}
+
+.galery__box--card img {
+  width: 100%; /* Изображение будет растягиваться по ширине блока */
+  height: auto; /* Сохраняет пропорции изображения */
+  -o-object-fit: cover;
+     object-fit: cover; /* Опционально: обрезает изображение, если оно слишком большое */
+}
+
+.card--text {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 10%;
+  color: rgb(118, 7, 229);
+  background-color: rgba(255, 255, 255, 0.478);
+  font-family: "Rubik Bubbles", system-ui;
+  letter-spacing: 3px;
+  font-size: 2rem;
+  text-transform: uppercase;
+  font-weight: 900;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.gr {
+  border: 2px solid greenyellow;
+}
+
+.bl {
+  border: 2px solid blueviolet;
+}
+
+.re {
+  border: 2px solid red;
+}
+
+.main__order {
+  padding: 1.875rem 0;
+}
+.main__order--title {
+  text-align: center;
+}
+.main__order--title h3 {
+  font-size: 3.125rem;
+  text-transform: uppercase;
+  font-weight: 900;
+  font-family: "Rubik Bubbles", system-ui;
+  letter-spacing: 7px;
+  color: white;
+  line-height: 1.3;
+  text-shadow: 1px 1px 3px black, 2px 2px 1px greenyellow, 3px 3px 3px black, -1px -1px 3px black, -2px -2px 1px greenyellow, -3px -3px 3px black;
+}
+.main__order--order {
+  position: relative;
+  margin-top: 1.875rem;
+  text-align: center;
+  padding: 0.625rem 0;
+  background-image: linear-gradient(45deg, rgba(0, 0, 255, 0.533), rgba(0, 128, 0, 0.519), rgba(255, 255, 0, 0.524), rgba(255, 0, 0, 0.543), rgba(255, 166, 0, 0.524), rgba(128, 0, 128, 0.51), rgba(255, 192, 203, 0.505));
+  border-radius: 10px;
+  -webkit-box-shadow: 15px 15px 7px rgb(253, 253, 253), -15px -15px 7px rgb(253, 253, 253);
+          box-shadow: 15px 15px 7px rgb(253, 253, 253), -15px -15px 7px rgb(253, 253, 253);
+}
+.main__order--order h3 {
+  font-size: 3.125rem;
+  text-transform: uppercase;
+  font-weight: 900;
+  font-family: "Caveat", cursive;
+  letter-spacing: 7px;
+  color: white;
+  cursor: pointer;
+  text-shadow: 1px 1px 3px black, 2px 2px 1px rgb(250, 251, 250), 3px 3px 3px black, -1px -1px 3px black, -2px -2px 1px rgb(249, 250, 248), -3px -3px 3px black;
+}
+.main__order--order form {
+  margin-top: 1.875rem;
+}
+
+.box--submit {
+  background-color: rgba(172, 255, 47, 0.631);
+}
+
+.btn {
+  font-family: "Playwrite NL", cursive;
+  color: rgb(7, 7, 7);
+  font-size: 1.25rem;
+  padding: 0.625rem;
+  margin: 0.625rem 0;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  border-radius: 10px;
+  font-weight: bold;
+  border: 2px solid white;
+}
+
+.box--exit {
+  background-color: rgba(250, 126, 54, 0.631);
+}
+.box--exit span {
+  font-family: "Ga Maamli", sans-serif;
+  font-weight: 900;
+  color: rgb(172, 255, 47);
+  border-bottom: 1px dashed rgb(172, 255, 47);
+  border-top: 1px dashed rgb(172, 255, 47);
+}
+
+.order__box--text {
+  font-family: "Playwrite NL", cursive;
+  color: white;
+  font-size: 1.25rem;
+  text-transform: uppercase;
+  font-weight: 900;
+  margin-bottom: 1.25rem;
+  letter-spacing: 3px;
+  text-shadow: 2px 2px 3px black;
+}
+.name--box,
+.size--box,
+.count--box,
+.box--servise {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-column-gap: 0.625rem;
+     -moz-column-gap: 0.625rem;
+          column-gap: 0.625rem;
+  row-gap: 0.625rem;
+}
+
+.name,
+.size,
+.count,
+.servise {
+  background-color: white;
+  padding: 0.625rem;
+  border-radius: 5px;
+  font-family: "Playwrite NL", cursive;
+  font-size: 1rem;
+  font-weight: 800;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  border: 1px solid rgb(66, 8, 238);
+  cursor: pointer;
+}
+.name:hover,
+.size:hover,
+.count:hover,
+.servise:hover {
+  background-color: rgba(97, 92, 92, 0.192);
+  color: white;
+  border: 1px solid white;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box; /* Учитывает бордер внутри размера блока */
+}
+
+.size,
+.count {
+  font-family: "Protest Riot", sans-serif;
+}
+
+.servise {
+  font-family: "Playwrite NL", cursive;
+}
+
+.bx {
+  border: 1px dashed white;
+  padding: 1.25rem;
+}
+
+.order--form {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: none;
+  z-index: 1000;
+  background-image: linear-gradient(45deg, rgb(0, 0, 255), rgb(0, 128, 0), rgb(255, 255, 0), rgb(255, 0, 0), rgb(255, 166, 0), rgb(128, 0, 128), rgb(255, 192, 203));
+}
+.order--form img {
+  background-color: white;
+  border-radius: 50%;
+  rotate: 45deg;
+  margin-top: 1.25rem;
+  width: 1.875rem;
+  display: none;
+}
+
+.odc {
+  height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background-color: rgba(154, 113, 243, 0.416);
+}
+.odc form {
+  margin-top: 1.25rem;
+  padding: 1.875rem;
+  border-radius: 10px;
+}
+
+.order__title h3 {
+  font-family: "Playwrite NL", cursive;
+  font-weight: 900;
+  color: white;
+  font-size: 3.125rem;
+  text-shadow: 1px 1px 3px black, 2px 2px 1px rgb(250, 251, 250), 3px 3px 3px black, -1px -1px 3px black, -2px -2px 1px rgb(249, 250, 248), -3px -3px 3px black;
+}
+
+.orderform__box {
+  padding: 1.25rem 0;
+}
+.orderform__box p {
+  font-family: "Playwrite NL", cursive;
+  font-weight: 900;
+  color: rgb(252, 251, 251);
+  font-size: 1.25rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  text-shadow: 1px 1px 3px black, 2px 2px 1px rgb(250, 251, 250), 3px 3px 3px black;
+}
+
+.main__question {
+  margin-top: 3.125rem;
+}
+.question__block--title {
+  margin: 3.125rem 0;
+  text-align: center;
+}
+.question__block--title p {
+  font-family: "Playwrite NL", cursive;
+  font-weight: 900;
+  color: rgb(250, 248, 252);
+  font-size: 1.25rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  line-height: 1.6;
+  text-shadow: 1px 1px 31px rgb(72, 5, 241), 3px 3px 31px rgb(110, 9, 243), -1px -1px 31px rgb(61, 3, 248), -3px -3px 31px rgb(89, 4, 246);
+}
+.question__block--box {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+.question--form form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+.question--form form b {
+  font-size: 1.375rem;
+  text-transform: uppercase;
+  text-shadow: 1px 1px 3px rgb(252, 252, 252), 2px 2px 6px rgb(90, 7, 245), 3px 3px 3px rgb(159, 158, 158), -2px -2px 6px rgb(102, 8, 243);
+}
+.question--form label {
+  margin-bottom: 0.3125rem;
+}
+
+input {
+  font-size: 1.375rem;
+  padding: 0.625rem;
+  border-radius: 10px;
+  margin-bottom: 1.25rem;
+  border: 1px dashed blue;
+}
+input::-webkit-input-placeholder {
+  font-weight: 900;
+  font-style: italic;
+  text-align: center;
+  letter-spacing: 2px;
+}
+input::-moz-placeholder {
+  font-weight: 900;
+  font-style: italic;
+  text-align: center;
+  letter-spacing: 2px;
+}
+input:-ms-input-placeholder {
+  font-weight: 900;
+  font-style: italic;
+  text-align: center;
+  letter-spacing: 2px;
+}
+input::-ms-input-placeholder {
+  font-weight: 900;
+  font-style: italic;
+  text-align: center;
+  letter-spacing: 2px;
+}
+input::placeholder {
+  font-weight: 900;
+  font-style: italic;
+  text-align: center;
+  letter-spacing: 2px;
+}
+
+.question--img {
+  position: relative;
+  max-width: 12.5rem;
+}
+.question--img p {
+  position: absolute;
+  bottom: 2.5rem;
+  font-family: "Playwrite NL", cursive;
+  font-weight: 900;
+  color: white;
+  font-size: 1.75rem;
+  text-shadow: 2px 2px 10px rgb(90, 7, 245), -2px -2px 16px rgb(102, 8, 243);
+  padding: 0.625rem;
+}
+
+.question--img img {
+  width: 100%;
+}
+
+.main__opis {
+  margin-top: 8.125rem;
+}
+
+.opis__container p {
+  font-family: "Playwrite NL", cursive;
+  font-weight: 900;
+  color: rgb(9, 9, 9);
+  font-size: 1.75rem;
+  line-height: 1.3;
+  padding: 0.625rem;
+  background-image: url(../galery/n4.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  text-shadow: 2px 2px 10px rgb(254, 254, 254), -2px -2px 16px rgb(248, 247, 249);
+}

@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<link href="https://fonts.googleapis.com/css2?family=Ga+Maamli&display=swap" rel="stylesheet">
+
+	<link rel="stylesheet" href="css/style.css">
+	<title>order</title>
+</head>
+
+<body>
+
+	<div class="wrapper">
+
+		<div class="order__container odc">
+			<div class="order__title">
+				<h3>ваше замовлення</h3>
+			</div>
+			<form id="orderForm" action="http://example.com/submit_order" method="POST">
+
+				<div class="orderform__box">
+					<p id="nameDisplay">іграшка : </p>
+				</div>
+				<div class="orderform__box">
+					<p id="sizeDisplay">розмір : </p>
+				</div>
+				<div class="orderform__box">
+					<p id="countDisplay">кількість : </p>
+				</div>
+				<div class="orderform__box">
+					<p id="serviseDisplay">пакунок : </p>
+				</div>
+
+
+				<button class="box--submit btn" type="submit">Підтвердить<br>відправити замовлення</button>
+			</form>
+			<button class="box--exit btn" onclick="goBack()">Відміна замовлення<br>або<br>повернутися на головну <br>
+				<span>після ! сдійснення замовлення</span>
+			</button>
+
+		</div>
+
+	</div>
+
+	<!-- <script>
+		// Получаем данные из localStorage
+		const selectedName = localStorage.getItem('selectedName');
+		const selectedSize = localStorage.getItem('selectedSize');
+		const selectedCount = localStorage.getItem('selectedCount');
+		const selectedServise = localStorage.getItem('selectedServise');
+
+
+		// Отображаем на странице корзины
+		if (selectedName && selectedSize && selectedCount && selectedServise) {
+			document.getElementById('nameDisplay').textContent = "іграшка: " + selectedName;
+			document.getElementById('sizeDisplay').textContent = "розмір: " + selectedSize;
+			document.getElementById('countDisplay').textContent = "кількість: " + selectedCount;
+			document.getElementById('serviseDisplay').textContent = "пакунок: " + selectedServise;
+
+			// Заполняем скрытые поля, чтобы они могли быть отправлены
+			document.getElementById("nameDisplay").value = name;
+			document.getElementById("sizeDisplay").value = size;
+			document.getElementById("countDisplay").value = count;
+			document.getElementById("serviseDisplay").value = servise;
+
+		}
+
+		// Симуляция отправки данных (для проверки)
+		document.getElementById("orderForm").addEventListener("submit", function (event) {
+			event.preventDefault(); // Отменяем стандартную отправку формы
+
+			// Получаем значения из скрытых полей
+			const name = document.getElementById("nameDisplay").value;
+			const size = document.getElementById("sizeDisplay").value;
+			const count = document.getElementById("countDisplay").value;
+			const servise = document.getElementById("serviseDisplay").value;
+
+			// Отправляем данные через fetch (симуляция)
+			fetch("http://example.com/submit_order", {
+				method: "POST",
+				headers: {
+					"Content-Type": "application/json"
+				},
+				body: JSON.stringify({
+					name: name,
+					size: size,
+					count: count,
+					servise: servise
+				})
+			})
+
+				.then(response => {
+					if (!response.ok) {
+						throw new Error(`Ошибка HTTP: ${response.status}`);
+					}
+					return response.json();
+				})
+				.then(data => {
+					console.log("Ответ от сервера:", data);  // Логируем успешный ответ
+					alert("Заказ успешно отправлен!");
+				})
+				.catch(error => {
+					console.error("Ошибка при отправке:", error);  // Логируем ошибку
+					alert(`Произошла ошибка при отправке данных: ${error.message}`);
+				});
+		});
+	</script> -->
+
+<script>
+	// Получаем данные из localStorage
+	const selectedName = localStorage.getItem('selectedName');
+	const selectedSize = localStorage.getItem('selectedSize');
+	const selectedCount = localStorage.getItem('selectedCount');
+	const selectedServise = localStorage.getItem('selectedServise');
+
+	// Отображаем на странице корзины
+	if (selectedName && selectedSize && selectedCount && selectedServise) {
+		document.getElementById('nameDisplay').textContent = "іграшка: " + selectedName;
+		document.getElementById('sizeDisplay').textContent = "розмір: " + selectedSize;
+		document.getElementById('countDisplay').textContent = "кількість: " + selectedCount;
+		document.getElementById('serviseDisplay').textContent = "пакунок: " + selectedServise;
+
+		// Заполняем скрытые поля, чтобы они могли быть отправлены
+		document.getElementById("nameDisplay").value = selectedName;
+		document.getElementById("sizeDisplay").value = selectedSize;
+		document.getElementById("countDisplay").value = selectedCount;
+		document.getElementById("serviseDisplay").value = selectedServise;
+	}
+
+	// Симуляция отправки данных (для проверки)
+	document.getElementById("orderForm").addEventListener("submit", function (event) {
+		event.preventDefault(); // Отменяем стандартную отправку формы
+
+		// Получаем значения из скрытых полей
+		const name = document.getElementById("nameDisplay").value;
+		const size = document.getElementById("sizeDisplay").value;
+		const count = document.getElementById("countDisplay").value;
+		const servise = document.getElementById("serviseDisplay").value;
+
+		// Отправляем данные через fetch (симуляция)
+		fetch("http://example.com/submit_order", {
+			method: "POST",
+			headers: {
+				"Content-Type": "application/json"
+			},
+			body: JSON.stringify({
+				name: name,
+				size: size,
+				count: count,
+				servise: servise
+			})
+		})
+			.then(response => {
+				if (!response.ok) {
+					throw new Error(`Ошибка HTTP: ${response.status}`);
+				}
+				return response.json();
+			})
+			.then(data => {
+				console.log("Ответ от сервера:", data);  // Логируем успешный ответ
+				alert("Заказ успешно отправлен!");
+			})
+			.catch(error => {
+				console.error("Ошибка при отправке:", error);  // Логируем ошибку
+				alert(`Произошла ошибка при отправке данных: ${error.message}`);
+			});
+	});
+</script>
+
+
+
+	<script src="js/script.js"></script>
+</body>
+
+</html>

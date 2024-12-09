@@ -1,0 +1,693 @@
+@import "null.scss";
+@import "var.scss";
+
+// +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+@function toRem($value) {
+	$baseFontSize: 16;
+	@return ($value / $baseFontSize) * 1rem;
+}
+// !Миксины ================================================================================
+
+$maxWidth: 1920;
+
+@mixin adaptiveValue($property, $pcSize, $mobSize) {
+	$addSize: $pcSize - $mobSize;
+	$addMobSize: $addSize + $addSize * 0.7;
+
+	@media (min-width: toRem(1920)) {
+		#{$property}: #{$pcSize + px};
+	}
+
+	@media (max-width: toRem(1920)) {
+		@media (max-width: 1920px) {
+			#{$property}: calc(#{$mobSize + px} + #{$addMobSize} * ((100vw - 767px) / #{$maxWidth}));
+		}
+	}
+}
+
+// ..................................................................................
+
+[class*="__container"] {
+	max-width: 1470px;
+	padding: 0 15px;
+	margin: 0 auto;
+}
+// ......................................................................................
+
+.wrapper {
+	background-image: url(../fon/fon3.jpg);
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+}
+
+.bgc {
+	position: absolute; /* Для наложения на фон */
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background: rgba(255, 0, 255, 0.681); /* Легкий затеняющий цвет */
+	z-index: 8; /* Чтобы затеняющий фон был поверх картинки */
+}
+
+.header {
+	position: fixed;
+	width: 100%;
+	height: toRem(100);
+	top: 0;
+	left: 0;
+	right: 0;
+	z-index: 5;
+
+	&__container {
+		position: relative; /* Для позиционирования контента поверх фона */
+		z-index: 10; /* Контент будет сверху затеняющего фона */
+		display: flex;
+		padding-top: toRem(30);
+		justify-content: space-between;
+	}
+
+	&__logo {
+		font-size: toRem(40);
+		font-family: "Playwrite PE", cursive;
+		text-transform: uppercase;
+		font-weight: 900;
+		text-shadow:
+			1px 1px 3px rgb(249, 247, 247),
+			2px 2px 10px greenyellow,
+			3px 3px 3px rgb(250, 248, 248),
+			-1px -1px 3px black,
+			-2px -2px 11px greenyellow,
+			-3px -3px 3px black;
+	}
+	&__nav {
+		font-size: toRem(20);
+		font-family: "Protest Riot", sans-serif;
+		text-transform: uppercase;
+		font-weight: 900;
+		text-shadow:
+			1px 1px 3px rgb(249, 247, 247),
+			2px 2px 1px greenyellow,
+			3px 3px 3px rgb(250, 248, 248);
+	
+	}
+	&__contact {
+		font-size: toRem(20);
+		font-family: "Protest Riot", sans-serif;
+		text-transform: uppercase;
+		font-weight: 900;
+		text-shadow:
+			1px 1px 3px rgb(249, 247, 247),
+			2px 2px 1px greenyellow,
+			3px 3px 3px rgb(250, 248, 248);
+		
+	}
+}
+
+// ================================================================================================
+.main {
+	&__hero {
+		// margin-top: toRem(-100);
+		// background-image: url(../fon/fon33.jpg);
+		// background-repeat: no-repeat;
+		// background-position: center;
+		// background-size: cover;
+	}
+}
+.hero {
+	&__container {
+		// padding-top: toRem(100);
+		padding: toRem(100) 0;
+	}
+	&__content {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		padding-top: toRem(100);
+
+		& span {
+			font-size: 200px;
+			font-weight: 900;
+			font-family: "Ga Maamli", sans-serif;
+			// color: yellow;
+			color: greenyellow;
+		}
+		& .sp {
+			font-size: 50px;
+		}
+	}
+	&__info {
+		margin-top: toRem(50);
+		width: 100%;
+		display: flex;
+		align-items: center;
+		justify-content: space-around;
+		& p {
+			color: white;
+			text-align: center;
+			font-size: 20px;
+			// font-family: "Caveat", cursive;
+			font-family: "Rubik Bubbles", system-ui;
+			text-transform: uppercase;
+			font-weight: 400;
+			line-height: 1.5;
+			letter-spacing: 5px;
+			background-color: rgba(255, 254, 254, 0.533);
+			padding: toRem(20);
+			border-radius: toRem(10);
+			border: 1px solid rgb(175, 5, 222);
+			text-shadow:
+				1px 1px 3px black,
+				2px 2px 1px greenyellow,
+				3px 3px 3px black,
+				-1px -1px 3px black,
+				-2px -2px 1px greenyellow,
+				-3px -3px 3px black;
+		}
+	}
+}
+
+.hero__title {
+	position: relative;
+	display: flex;
+	align-items: center;
+	background-image: url(../galery/logo5.png);
+	background-repeat: no-repeat;
+	background-size: 60%;
+	background-position: right 0 bottom 0;
+
+	& h1 {
+		position: relative;
+		margin-top: toRem(50);
+		font-size: 100px;
+		font-family: "Protest Riot", sans-serif;
+		text-transform: uppercase;
+		font-weight: 900;
+		display: flex;
+		align-items: center;
+		color: rgb(247, 251, 247);
+		text-shadow:
+			1px 1px 2px black,
+			2px 2px 1px greenyellow,
+			3px 3px 2px black,
+			-1px -1px 2px black,
+			-2px -2px 1px greenyellow,
+			-3px -3px 2px black;
+		letter-spacing: 10px;
+	}
+}
+
+.hero--img {
+	position: relative;
+	border: 2px solid rgb(21, 240, 28);
+	width: toRem(150);
+	border-radius: 50%;
+	&::after {
+		content: "";
+		position: absolute;
+		border: 1px solid rgb(175, 5, 222);
+		border-radius: 50%;
+		width: toRem(170);
+		height: toRem(170);
+		top: -10px;
+		left: -10px;
+	}
+}
+
+.hero--img img {
+	width: 100%;
+	border-radius: 50%;
+}
+.hero__title--img {
+}
+.hero__title--img img {
+}
+// =================================================================================
+
+.main {
+	&__galery {
+		padding-bottom: toRem(30);
+	}
+}
+.galery {
+	&__container {
+	}
+	&__title {
+		position: relative;
+		margin-top: toRem(20);
+	}
+	&__title img {
+		position: absolute;
+		width: 15%;
+		top: 0;
+		left: toRem(400);
+	}
+
+	&__title h2 {
+		font-size: toRem(100);
+		text-transform: uppercase;
+		font-weight: 900;
+		font-family: "Ga Maamli", sans-serif;
+		text-align: center;
+		margin-bottom: toRem(30);
+		letter-spacing: 7px;
+		color: greenyellow;
+		text-shadow:
+			1px 1px 3px black,
+			2px 2px 1px greenyellow,
+			3px 3px 3px black,
+			-1px -1px 3px black,
+			-2px -2px 1px greenyellow,
+			-3px -3px 3px black;
+	}
+
+	&__box {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+		row-gap: toRem(30);
+		column-gap: toRem(30);
+		width: 100%;
+		position: relative;
+	}
+	&__box--card {
+		position: relative;
+		width: 440px; /* Устанавливаем фиксированную ширину для блока */
+		height: toRem(600);
+		// height: auto; /* Можно установить фиксированную высоту, если нужно */
+		overflow: hidden; /* Обрезаем всё, что выходит за пределы блока */
+		border-radius: 20px;
+	}
+}
+
+.galery__box--card img {
+	width: 100%; /* Изображение будет растягиваться по ширине блока */
+	height: auto; /* Сохраняет пропорции изображения */
+	object-fit: cover; /* Опционально: обрезает изображение, если оно слишком большое */
+}
+.card--text {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	height: 10%;
+	color: rgb(118, 7, 229);
+	background-color: rgba(255, 255, 255, 0.478);
+	font-family: "Rubik Bubbles", system-ui;
+	letter-spacing: 3px;
+	font-size: toRem(32);
+	text-transform: uppercase;
+	font-weight: 900;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.gr {
+	border: 2px solid greenyellow;
+}
+.bl {
+	border: 2px solid blueviolet;
+}
+.re {
+	border: 2px solid red;
+}
+// ===========================   order ======================================================
+
+.main {
+	&__order {
+		// border: 1px solid rgb(6, 6, 6);
+		padding: toRem(30) 0;
+	}
+	&__order--title {
+		text-align: center;
+		& h3 {
+			font-size: toRem(50);
+			text-transform: uppercase;
+			font-weight: 900;
+			font-family: "Rubik Bubbles", system-ui;
+			letter-spacing: 7px;
+			color: white;
+			line-height: 1.3;
+			text-shadow:
+				1px 1px 3px black,
+				2px 2px 1px greenyellow,
+				3px 3px 3px black,
+				-1px -1px 3px black,
+				-2px -2px 1px greenyellow,
+				-3px -3px 3px black;
+		}
+	}
+	&__order--order {
+		position: relative;
+		margin-top: toRem(30);
+		text-align: center;
+		padding: toRem(10) 0;
+		background-image: linear-gradient(
+			45deg,
+			rgba(0, 0, 255, 0.533),
+			rgba(0, 128, 0, 0.519),
+			rgba(255, 255, 0, 0.524),
+			rgba(255, 0, 0, 0.543),
+			rgba(255, 166, 0, 0.524),
+			rgba(128, 0, 128, 0.51),
+			rgba(255, 192, 203, 0.505)
+		);
+		//   height: 100vh;
+		border-radius: 10px;
+		box-shadow:
+			15px 15px 7px rgb(253, 253, 253),
+			-15px -15px 7px rgb(253, 253, 253);
+		& h3 {
+			font-size: toRem(50);
+			text-transform: uppercase;
+			font-weight: 900;
+			font-family: "Caveat", cursive;
+			letter-spacing: 7px;
+			color: white;
+			cursor: pointer;
+			text-shadow:
+				1px 1px 3px black,
+				2px 2px 1px rgb(250, 251, 250),
+				3px 3px 3px black,
+				-1px -1px 3px black,
+				-2px -2px 1px rgb(249, 250, 248),
+				-3px -3px 3px black;
+		}
+		& form {
+			margin-top: toRem(30);
+		}
+	}
+}
+.order {
+	&__container {
+		// border: 1px solid rgb(6, 6, 6);
+	}
+	&__box {
+	}
+	&__box--name {
+	}
+	&__box--size {
+	}
+	&__box--count {
+	}
+	&__box--servise {
+	}
+	&__buttons {
+	}
+}
+.box--submit {
+	background-color: rgba(172, 255, 47, 0.631);
+}
+.btn {
+	font-family: "Playwrite NL", cursive;
+	color: rgb(7, 7, 7);
+	font-size: toRem(20);
+	padding: toRem(10);
+	margin: toRem(10) 0;
+	text-transform: uppercase;
+	letter-spacing: 3px;
+	border-radius: 10px;
+	font-weight: bold;
+	border: 2px solid white;
+}
+.box--exit {
+	background-color: rgba(250, 126, 54, 0.631);
+	& span {
+		font-family: "Ga Maamli", sans-serif;
+		font-weight: 900;
+		color: rgb(172, 255, 47);
+		border-bottom: 1px dashed rgb(172, 255, 47);
+		border-top: 1px dashed rgb(172, 255, 47);
+	}
+}
+
+// .........................   радиокнипки   ...............................................
+
+.order {
+	&__box {
+	}
+	&__box--name {
+	}
+	&__box--text {
+		font-family: "Playwrite NL", cursive;
+		color: white;
+		font-size: toRem(20);
+		text-transform: uppercase;
+		font-weight: 900;
+		margin-bottom: toRem(20);
+		letter-spacing: 3px;
+		text-shadow: 2px 2px 3px black;
+	}
+	&__box--size {
+	}
+	&__box--count {
+	}
+	&__box--servise {
+	}
+}
+
+.name--box,
+.size--box,
+.count--box,
+.box--servise {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: center;
+	column-gap: toRem(10);
+	row-gap: toRem(10);
+}
+.name,
+.size,
+.count,
+.servise {
+	background-color: white;
+	padding: toRem(10);
+	border-radius: 5px;
+	font-family: "Playwrite NL", cursive;
+	font-size: toRem(16);
+	font-weight: 800;
+	letter-spacing: 3px;
+	text-transform: uppercase;
+	border: 1px solid rgb(66, 8, 238);
+	cursor: pointer;
+	&:hover {
+		background-color: rgba(97, 92, 92, 0.192);
+		color: white;
+		border: 1px solid white;
+		box-sizing: border-box; /* Учитывает бордер внутри размера блока */
+	}
+}
+
+.checkmark {
+}
+.size,
+.count {
+	font-family: "Protest Riot", sans-serif;
+}
+
+.servise {
+	font-family: "Playwrite NL", cursive;
+}
+.bx {
+	border: 1px dashed white;
+	padding: toRem(20);
+}
+.order--form {
+	position: absolute;
+	top: 0;
+	left: 0;
+	display: none;
+	z-index: 1000;
+	background-image: linear-gradient(
+		45deg,
+		rgb(0, 0, 255),
+		rgb(0, 128, 0),
+		rgb(255, 255, 0),
+		rgb(255, 0, 0),
+		rgb(255, 166, 0),
+		rgb(128, 0, 128),
+		rgb(255, 192, 203)
+	);
+	& img {
+		background-color: white;
+		border-radius: 50%;
+		rotate: 45deg;
+		margin-top: toRem(20);
+		width: toRem(30);
+		display: none;
+	}
+}
+// ===========================  order =======================================================
+
+.odc {
+	height: 100vh;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	background-color: rgba(154, 113, 243, 0.416);
+	& form {
+		margin-top: toRem(20);
+		// background-color: rgba(81, 7, 241, 0.416);
+		padding: toRem(30);
+		border-radius: 10px;
+	}
+}
+.order__title {
+	& h3 {
+		font-family: "Playwrite NL", cursive;
+		font-weight: 900;
+		color: white;
+		font-size: toRem(50);
+
+		text-shadow:
+			1px 1px 3px black,
+			2px 2px 1px rgb(250, 251, 250),
+			3px 3px 3px black,
+			-1px -1px 3px black,
+			-2px -2px 1px rgb(249, 250, 248),
+			-3px -3px 3px black;
+	}
+}
+.orderform__box {
+	padding: toRem(20) 0;
+
+	& p {
+		font-family: "Playwrite NL", cursive;
+		font-weight: 900;
+		color: rgb(252, 251, 251);
+		font-size: toRem(20);
+		letter-spacing: 3px;
+		text-transform: uppercase;
+		text-shadow:
+			1px 1px 3px black,
+			2px 2px 1px rgb(250, 251, 250),
+			3px 3px 3px black;
+		// -1px -1px 3px black,
+		// -2px -2px 1px rgb(249, 250, 248),
+		// -3px -3px 3px black;
+	}
+}
+
+// ===============================  .question  =================================================================
+
+.main {
+	&__question {
+		margin-top: toRem(50);
+	}
+	&__order--title {
+	}
+}
+.question {
+	&__container {
+	}
+	&__block {
+	}
+	&__block--title {
+		margin: toRem(50) 0;
+		text-align: center;
+		& p {
+			font-family: "Playwrite NL", cursive;
+			font-weight: 900;
+			color: rgb(250, 248, 252);
+			font-size: toRem(20);
+			letter-spacing: 3px;
+			text-transform: uppercase;
+			line-height: 1.6;
+			text-shadow:
+				1px 1px 31px rgb(72, 5, 241),
+				// 2px 2px 1px rgb(250, 251, 250),
+				3px 3px 31px rgb(110, 9, 243),
+				-1px -1px 31px rgb(61, 3, 248),
+				// -2px -2px 1px rgb(250, 251, 250),
+				-3px -3px 31px rgb(89, 4, 246);
+		}
+	}
+	&__block--box {
+		display: flex;
+		justify-content: space-around;
+	}
+}
+.question--form {
+	& form {
+		display: flex;
+		flex-direction: column;
+		& b {
+			font-size: toRem(22);
+			text-transform: uppercase;
+			text-shadow:
+				1px 1px 3px rgb(252, 252, 252),
+				2px 2px 6px rgb(90, 7, 245),
+				3px 3px 3px rgb(159, 158, 158),
+				-2px -2px 6px rgb(102, 8, 243);
+		}
+	}
+	& label {
+		margin-bottom: toRem(5);
+	}
+}
+
+input {
+	font-size: toRem(22);
+	padding: toRem(10);
+	border-radius: 10px;
+	margin-bottom: toRem(20);
+	border: 1px dashed blue;
+	&::placeholder {
+		font-weight: 900;
+		font-style: italic;
+		text-align: center;
+		letter-spacing: 2px;
+	}
+}
+
+.question--img {
+	position: relative;
+	max-width: toRem(200);
+	& p {
+		position: absolute;
+		bottom: toRem(40);
+		font-family: "Playwrite NL", cursive;
+		font-weight: 900;
+		color: white;
+		font-size: toRem(28);
+		text-shadow:
+			2px 2px 10px rgb(90, 7, 245),
+			-2px -2px 16px rgb(102, 8, 243);
+
+		padding: toRem(10);
+	}
+}
+.question--img img {
+	width: 100%;
+}
+// ================================   opis  ==============================================================
+
+.main {
+	&__opis {
+		margin-top: toRem(130);
+	}
+}
+.opis {
+	&__container {
+		& p {
+			font-family: "Playwrite NL", cursive;
+			font-weight: 900;
+			color: rgb(9, 9, 9);
+			font-size: toRem(28);
+			line-height: 1.3;
+			// background-color: rgba(255, 255, 255, 0.513);
+			padding: toRem(10);
+			background-image: url(../galery/n4.png);
+			background-repeat: no-repeat;
+			background-position: center;
+			background-size: contain;
+				text-shadow:
+			2px 2px 10px rgb(254, 254, 254),
+			-2px -2px 16px rgb(248, 247, 249);
+		}
+	}
+}
