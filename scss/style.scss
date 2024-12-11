@@ -48,7 +48,7 @@ $maxWidth: 1920;
 	left: 0;
 	right: 0;
 	bottom: 0;
-	background: rgba(255, 0, 255, 0.681); /* Легкий затеняющий цвет */
+	background: rgba(252, 251, 252, 0.643); /* Легкий затеняющий цвет */
 	z-index: 8; /* Чтобы затеняющий фон был поверх картинки */
 }
 
@@ -60,12 +60,16 @@ $maxWidth: 1920;
 	left: 0;
 	right: 0;
 	z-index: 5;
+	background-image: url(../fon/fon44.jpg);
+
+	border-bottom: 3px dashed blue;
 
 	&__container {
 		position: relative; /* Для позиционирования контента поверх фона */
 		z-index: 10; /* Контент будет сверху затеняющего фона */
 		display: flex;
-		padding-top: toRem(30);
+		// padding-top: toRem(20);
+		align-items: center;
 		justify-content: space-between;
 	}
 

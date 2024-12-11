@@ -150,7 +150,7 @@ h1, h2, h3, h4, h5, h6 {
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(255, 0, 255, 0.681); /* Легкий затеняющий цвет */
+  background: rgba(252, 251, 252, 0.643); /* Легкий затеняющий цвет */
   z-index: 8; /* Чтобы затеняющий фон был поверх картинки */
 }
 
@@ -162,6 +162,8 @@ h1, h2, h3, h4, h5, h6 {
   left: 0;
   right: 0;
   z-index: 5;
+  background-image: url(../fon/fon44.jpg);
+  border-bottom: 3px dashed blue;
 }
 .header__container {
   position: relative; /* Для позиционирования контента поверх фона */
@@ -169,7 +171,9 @@ h1, h2, h3, h4, h5, h6 {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  padding-top: 1.875rem;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
