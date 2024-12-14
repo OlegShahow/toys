@@ -115,3 +115,64 @@ krestik.addEventListener("click", () => {
 	orderForm.style.display = "none";
 })
 
+// ================================ callForm  =============================================================
+
+
+// Получаем форму
+const form = document.getElementById('callForm');
+
+// Добавляем обработчик на отправку формы
+form.addEventListener('submit', function (event) {
+	event.preventDefault();  // Отменяем стандартное поведение формы
+
+	// Сбор данных из формы
+	const formData = new FormData(form);
+
+	// Отправка данных с помощью fetch
+	fetch(form.action, {
+		method: 'POST',  // Указываем метод POST
+		body: formData   // Передаем данные формы
+	})
+		.then(response => response.json())  // Парсим ответ в JSON (если сервер отвечает в таком формате)
+		.then(data => {
+			// Обрабатываем ответ от сервера, например, выводим сообщение
+			alert('Дані успішно надіслані');
+			console.log(data);  // Выводим ответ сервера
+		})
+		.catch(error => {
+			// Обрабатываем ошибки
+			alert('Сталася помилка при відправці даних');
+			console.error(error);
+		});
+});
+
+
+// ================================   backForm  ========================================================
+
+// Получаем форму
+const bform = document.getElementById('backForm');
+
+// Добавляем обработчик на отправку формы
+backform.addEventListener('submit', function (event) {
+	event.preventDefault();  // Отменяем стандартное поведение формы
+
+	// Сбор данных из формы
+	const formData = new FormData(backform);
+
+	// Отправка данных с помощью fetch
+	fetch(backform.action, {
+		method: 'POST',  // Указываем метод POST
+		body: formData   // Передаем данные формы
+	})
+		.then(response => response.json())  // Парсим ответ в JSON (если сервер отвечает в таком формате)
+		.then(data => {
+			// Обрабатываем ответ от сервера, например, выводим сообщение
+			alert('Дані успішно надіслані');
+			console.log(data);  // Выводим ответ сервера
+		})
+		.catch(error => {
+			// Обрабатываем ошибки
+			alert('Сталася помилка при відправці даних');
+			console.error(error);
+		});
+})

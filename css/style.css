@@ -1105,15 +1105,18 @@ input::placeholder {
   font-weight: 900;
   border: 1px dashed black;
   border-radius: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: rgb(11, 11, 11);
 }
 @media (min-width: 120rem) {
   .footer__box--back button {
-    width: 100px;
+    width: 120px;
   }
 }
 @media (max-width: 120rem) and (max-width: 1920px) {
   .footer__box--back button {
-    width: calc(300px + -340 * (100vw - 767px) / 1920);
+    width: calc(300px + -306 * (100vw - 767px) / 1920);
   }
 }
 .other {
