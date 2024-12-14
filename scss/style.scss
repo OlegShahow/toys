@@ -784,7 +784,7 @@ input {
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
-		@media (max-width: toRem(1999)) {
+		@media (max-width: toRem(1200)) {
 			flex-direction: column;
 			row-gap: toRem(30);
 		}

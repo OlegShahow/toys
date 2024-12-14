@@ -1057,7 +1057,7 @@ input::placeholder {
       -ms-flex-align: center;
           align-items: center;
 }
-@media (max-width: 124.9375rem) {
+@media (max-width: 75rem) {
   .footer__box {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
