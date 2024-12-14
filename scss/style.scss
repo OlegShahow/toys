@@ -25,7 +25,7 @@ $maxWidth: 1920;
 		}
 	}
 }
-
+// @include adaptiveValue ($property , $pcSize, $mobSize);
 // ..................................................................................
 
 [class*="__container"] {
@@ -55,26 +55,28 @@ $maxWidth: 1920;
 .header {
 	position: fixed;
 	width: 100%;
-	height: toRem(100);
+	@include adaptiveValue("height", 100, 80);
 	top: 0;
 	left: 0;
 	right: 0;
 	z-index: 5;
 	background-image: url(../fon/fon44.jpg);
-
 	border-bottom: 3px dashed blue;
 
 	&__container {
 		position: relative; /* Для позиционирования контента поверх фона */
 		z-index: 10; /* Контент будет сверху затеняющего фона */
 		display: flex;
-		// padding-top: toRem(20);
+		padding-bottom: toRem(20);
 		align-items: center;
 		justify-content: space-between;
+		@media (max-width: toRem(550)) {
+			justify-content: space-around;
+		}
 	}
 
 	&__logo {
-		font-size: toRem(40);
+		@include adaptiveValue("font-size", 40, 20);
 		font-family: "Playwrite PE", cursive;
 		text-transform: uppercase;
 		font-weight: 900;
@@ -85,17 +87,20 @@ $maxWidth: 1920;
 			-1px -1px 3px black,
 			-2px -2px 11px greenyellow,
 			-3px -3px 3px black;
+		@media (max-width: toRem(550)) {
+			display: none;
+		}
 	}
 	&__nav {
-		font-size: toRem(30);
+		@include adaptiveValue("font-size", 30, 22);
 		font-weight: 600;
 		font-family: "Lobster", sans-serif;
-		letter-spacing: 5px;
-		margin-bottom: toRem(40);
+		@include adaptiveValue("letter-spacing", 5, 2);
 		color: rgb(6, 6, 6);
 		text-shadow: 5px 5px 5px rgba(245, 245, 247, 0.611);
 	}
 	&__contact {
+		// @include adaptiveValue("font-size", 20, 18);
 		font-size: toRem(20);
 		font-family: "Protest Riot", sans-serif;
 		text-transform: uppercase;
@@ -110,26 +115,30 @@ $maxWidth: 1920;
 // ================================================================================================
 .main {
 	&__hero {
-		// margin-top: toRem(-100);
-		// background-image: url(../fon/fon33.jpg);
-		// background-repeat: no-repeat;
-		// background-position: center;
-		// background-size: cover;
 	}
 }
+
+.hlg {
+	display: none;
+	@media (max-width: toRem(550)) {
+		display: block;
+		margin: toRem(20) 0;
+	}
+}
+
 .hero {
 	&__container {
-		// padding-top: toRem(100);
-		padding: toRem(100) 0;
+		// padding: toRem(100) 0;
+		padding-top: toRem(100);
+		@include adaptiveValue("padding-bottom", 100, 50);
 	}
 	&__content {
 		display: flex;
 		flex-direction: column;
 		align-items: center;
-		padding-top: toRem(100);
 
 		& span {
-			font-size: 200px;
+			@include adaptiveValue("font-size", 200, 120);
 			font-weight: 900;
 			font-family: "Ga Maamli", sans-serif;
 			// color: yellow;
@@ -137,6 +146,7 @@ $maxWidth: 1920;
 		}
 		& .sp {
 			font-size: 50px;
+			@include adaptiveValue("font-size", 50, 20);
 		}
 	}
 	&__info {
@@ -145,11 +155,16 @@ $maxWidth: 1920;
 		display: flex;
 		align-items: center;
 		justify-content: space-around;
+
+		@media (max-width: toRem(720)) {
+			flex-direction: column;
+			row-gap: toRem(30);
+		}
+
 		& p {
 			color: white;
 			text-align: center;
-			font-size: 20px;
-			// font-family: "Caveat", cursive;
+			@include adaptiveValue("font-size", 20, 18);
 			font-family: "Rubik Bubbles", system-ui;
 			text-transform: uppercase;
 			font-weight: 400;
@@ -181,8 +196,10 @@ $maxWidth: 1920;
 
 	& h1 {
 		position: relative;
-		margin-top: toRem(50);
+		// margin-top: toRem(50);
+		@include adaptiveValue("margin-top", 50, 10);
 		font-size: 100px;
+		@include adaptiveValue("font-size", 100, 60);
 		font-family: "Protest Riot", sans-serif;
 		text-transform: uppercase;
 		font-weight: 900;
@@ -203,17 +220,24 @@ $maxWidth: 1920;
 .hero--img {
 	position: relative;
 	border: 2px solid rgb(21, 240, 28);
-	width: toRem(150);
+	@include adaptiveValue("width", 150, 70);
+	@media (max-width: toRem(720)) {
+		width: toRem(50);
+	}
 	border-radius: 50%;
 	&::after {
 		content: "";
 		position: absolute;
 		border: 1px solid rgb(175, 5, 222);
 		border-radius: 50%;
-		width: toRem(170);
-		height: toRem(170);
+		@include adaptiveValue("width", 170, 85);
+		@include adaptiveValue("height", 170, 80);
 		top: -10px;
 		left: -10px;
+		@media (max-width: toRem(720)) {
+			width: toRem(65);
+			height: toRem(70);
+		}
 	}
 }
 
@@ -242,8 +266,8 @@ $maxWidth: 1920;
 	&__title img {
 		position: absolute;
 		width: 15%;
-		top: 0;
-		left: toRem(400);
+		@include adaptiveValue("top", 0, 55);
+		@include adaptiveValue("left", 400, 100);
 	}
 
 	&__title h2 {
@@ -275,8 +299,8 @@ $maxWidth: 1920;
 	}
 	&__box--card {
 		position: relative;
-		width: 440px; /* Устанавливаем фиксированную ширину для блока */
-		height: toRem(600);
+		@include adaptiveValue(" width", 440, 350);
+		@include adaptiveValue("height", 600, 470);
 		// height: auto; /* Можно установить фиксированную высоту, если нужно */
 		overflow: hidden; /* Обрезаем всё, что выходит за пределы блока */
 		border-radius: 20px;
@@ -298,7 +322,7 @@ $maxWidth: 1920;
 	background-color: rgba(255, 255, 255, 0.478);
 	font-family: "Rubik Bubbles", system-ui;
 	letter-spacing: 3px;
-	font-size: toRem(32);
+	@include adaptiveValue(" font-size", 32, 24);
 	text-transform: uppercase;
 	font-weight: 900;
 	display: flex;
@@ -324,7 +348,7 @@ $maxWidth: 1920;
 	&__order--title {
 		text-align: center;
 		& h3 {
-			font-size: toRem(50);
+			@include adaptiveValue(" font-size", 50, 34);
 			text-transform: uppercase;
 			font-weight: 900;
 			font-family: "Rubik Bubbles", system-ui;
@@ -361,7 +385,8 @@ $maxWidth: 1920;
 			15px 15px 7px rgb(253, 253, 253),
 			-15px -15px 7px rgb(253, 253, 253);
 		& h3 {
-			font-size: toRem(50);
+			// font-size: toRem(50);
+			@include adaptiveValue(" font-size", 50, 34);
 			text-transform: uppercase;
 			font-weight: 900;
 			font-family: "Caveat", cursive;
@@ -384,6 +409,7 @@ $maxWidth: 1920;
 .order {
 	&__container {
 		// border: 1px solid rgb(6, 6, 6);
+		padding: toRem(70) toRem(5);
 	}
 	&__box {
 	}
@@ -402,7 +428,7 @@ $maxWidth: 1920;
 	background-color: rgba(172, 255, 47, 0.631);
 }
 .btn {
-	font-family: "Playwrite NL", cursive;
+	// font-family: "Playwrite NL", cursive;
 	color: rgb(7, 7, 7);
 	font-size: toRem(20);
 	padding: toRem(10);
@@ -440,6 +466,9 @@ $maxWidth: 1920;
 		margin-bottom: toRem(20);
 		letter-spacing: 3px;
 		text-shadow: 2px 2px 3px black;
+			@media (max-width:toRem(500)) {
+					  font-family: "Lobster", sans-serif;
+				}
 	}
 	&__box--size {
 	}
@@ -459,6 +488,10 @@ $maxWidth: 1920;
 	justify-content: center;
 	column-gap: toRem(10);
 	row-gap: toRem(10);
+	@media (max-width: toRem(669)) {
+		flex-direction: column;
+		align-items: start;
+	}
 }
 .name,
 .size,
@@ -474,6 +507,11 @@ $maxWidth: 1920;
 	text-transform: uppercase;
 	border: 1px solid rgb(66, 8, 238);
 	cursor: pointer;
+		@media (max-width:toRem(500)) {
+					  font-family: "Lobster", sans-serif;
+					  font-weight: 900;
+					  font-size: toRem(24);
+				}
 	&:hover {
 		background-color: rgba(97, 92, 92, 0.192);
 		color: white;
@@ -519,6 +557,11 @@ $maxWidth: 1920;
 		margin-top: toRem(20);
 		width: toRem(30);
 		display: none;
+
+		@media (max-width: toRem(669)) {
+			display: block;
+			margin-left: 90%;
+		}
 	}
 }
 // ===========================  order =======================================================
@@ -532,7 +575,7 @@ $maxWidth: 1920;
 	background-color: rgba(154, 113, 243, 0.416);
 	& form {
 		margin-top: toRem(20);
-		// background-color: rgba(81, 7, 241, 0.416);
+		background-color: rgba(81, 7, 241, 0.416);
 		padding: toRem(30);
 		border-radius: 10px;
 	}
@@ -543,6 +586,8 @@ $maxWidth: 1920;
 		font-weight: 900;
 		color: white;
 		font-size: toRem(50);
+		margin-top: toRem(70);
+		text-align: center;
 
 		text-shadow:
 			1px 1px 3px black,
@@ -557,11 +602,12 @@ $maxWidth: 1920;
 	padding: toRem(20) 0;
 
 	& p {
-		font-family: "Playwrite NL", cursive;
+		// font-family: "Playwrite NL", cursive;
 		font-weight: 900;
 		color: rgb(252, 251, 251);
 		font-size: toRem(20);
 		letter-spacing: 3px;
+		line-height: 1.4;
 		text-transform: uppercase;
 		text-shadow:
 			1px 1px 3px black,
@@ -600,19 +646,28 @@ $maxWidth: 1920;
 			line-height: 1.6;
 			text-shadow:
 				1px 1px 31px rgb(72, 5, 241),
-				// 2px 2px 1px rgb(250, 251, 250),
 				3px 3px 31px rgb(110, 9, 243),
 				-1px -1px 31px rgb(61, 3, 248),
-				// -2px -2px 1px rgb(250, 251, 250),
 				-3px -3px 31px rgb(89, 4, 246);
+			@media (max-width: toRem(500)) {
+				font-family: "Lobster", sans-serif;
+			}
 		}
 	}
 	&__block--box {
 		display: flex;
 		justify-content: space-around;
+		@media (max-width: toRem(590)) {
+			flex-direction: column;
+			align-items: center;
+		}
 	}
 }
 .question--form {
+	@media (max-width: toRem(590)) {
+		order: 2;
+	}
+
 	& form {
 		display: flex;
 		flex-direction: column;
@@ -648,6 +703,12 @@ input {
 .question--img {
 	position: relative;
 	max-width: toRem(200);
+	margin-top: toRem(30);
+
+	@media (max-width: toRem(590)) {
+		order: 1;
+	}
+
 	& p {
 		position: absolute;
 		bottom: toRem(40);
@@ -658,8 +719,10 @@ input {
 		text-shadow:
 			2px 2px 10px rgb(90, 7, 245),
 			-2px -2px 16px rgb(102, 8, 243);
-
 		padding: toRem(10);
+		@media (max-width: toRem(500)) {
+			font-family: "Lobster", sans-serif;
+		}
 	}
 }
 .question--img img {
@@ -669,7 +732,7 @@ input {
 
 .main {
 	&__opis {
-		margin-top: toRem(130);
+		@include adaptiveValue("margin-top", 130, 60);
 	}
 }
 .opis {
@@ -721,6 +784,10 @@ input {
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
+		@media (max-width: toRem(1999)) {
+			flex-direction: column;
+			row-gap: toRem(30);
+		}
 	}
 	&__box--adress {
 		text-align: center;
@@ -742,7 +809,8 @@ input {
 		}
 		& button {
 			padding: toRem(10);
-			width: toRem(100);
+			// width: toRem(100);
+			@include adaptiveValue("width", 100, 300);
 			margin-top: toRem(20);
 			font-size: toRem(18);
 			background-color: rgba(255, 217, 0, 0.53);
@@ -782,5 +850,8 @@ input {
 	font-family: "Lobster", sans-serif;
 	letter-spacing: 3px;
 	font-size: toRem(20);
-	border: 3px sol blue;
+	// border: 3px sol blue;
+	@media (max-width: toRem(430)) {
+		width: toRem(360);
+	}
 }

@@ -106,3 +106,12 @@ function goBack() {
 
 
 // =============================    ============================================================
+
+
+const krestik = document.querySelector('.order--form img');
+
+krestik.addEventListener("click", () => {
+	h3.style.display = "block";
+	orderForm.style.display = "none";
+})
+
