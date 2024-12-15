@@ -384,6 +384,12 @@ $maxWidth: 1920;
 		box-shadow:
 			15px 15px 7px rgb(253, 253, 253),
 			-15px -15px 7px rgb(253, 253, 253);
+
+
+//  бегущий текст */
+			overflow: hidden; /* Скрываем все, что выходит за пределы контейнера */
+			white-space: nowrap; /* Запрещаем перенос текста */
+
 		& h3 {
 			// font-size: toRem(50);
 			@include adaptiveValue(" font-size", 50, 34);
@@ -400,6 +406,8 @@ $maxWidth: 1920;
 				-1px -1px 3px black,
 				-2px -2px 1px rgb(249, 250, 248),
 				-3px -3px 3px black;
+
+			
 		}
 		& form {
 			margin-top: toRem(30);
@@ -466,9 +474,9 @@ $maxWidth: 1920;
 		margin-bottom: toRem(20);
 		letter-spacing: 3px;
 		text-shadow: 2px 2px 3px black;
-			@media (max-width:toRem(500)) {
-					  font-family: "Lobster", sans-serif;
-				}
+		@media (max-width: toRem(500)) {
+			font-family: "Lobster", sans-serif;
+		}
 	}
 	&__box--size {
 	}
@@ -507,11 +515,11 @@ $maxWidth: 1920;
 	text-transform: uppercase;
 	border: 1px solid rgb(66, 8, 238);
 	cursor: pointer;
-		@media (max-width:toRem(500)) {
-					  font-family: "Lobster", sans-serif;
-					  font-weight: 900;
-					  font-size: toRem(24);
-				}
+	@media (max-width: toRem(500)) {
+		font-family: "Lobster", sans-serif;
+		font-weight: 900;
+		font-size: toRem(24);
+	}
 	&:hover {
 		background-color: rgba(97, 92, 92, 0.192);
 		color: white;
@@ -791,6 +799,11 @@ input {
 	}
 	&__box--adress {
 		text-align: center;
+
+		//  бегущий текст */
+		overflow: hidden; /* Скрываем все, что выходит за пределы контейнера */
+		white-space: nowrap; /* Запрещаем перенос текста */
+
 		& p {
 			font-size: toRem(30);
 			font-weight: 600;
@@ -810,7 +823,7 @@ input {
 		& button {
 			padding: toRem(10);
 			// width: toRem(100);
-			@include adaptiveValue("width", 120, 300);
+			// @include adaptiveValue("width", 150, 300);
 			margin-top: toRem(20);
 			font-size: toRem(18);
 			background-color: rgba(255, 217, 0, 0.53);
@@ -838,6 +851,25 @@ input {
 		5px 5px 5px rgba(64, 6, 237, 0.611),
 		-5px -5px 5px yellow;
 }
+
+// .................................  /* Анимация для бегущего текста */ ....................................................................
+.run {
+	display: inline-block;
+	animation: marquee-animation 10s linear infinite;
+}
+
+/* Анимация для бегущего текста */
+@keyframes marquee-animation {
+	0% {
+		transform: translateX(100%); /* Начало анимации: текст справа за пределами */
+	}
+	100% {
+		transform: translateX(-100%); /* Конец анимации: текст уходит слева */
+	}
+}
+
+// ...............................................................................................
+
 .enet--icon {
 	display: flex;
 	justify-content: space-between;

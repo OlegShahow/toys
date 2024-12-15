@@ -639,6 +639,8 @@ h1, h2, h3, h4, h5, h6 {
   border-radius: 10px;
   -webkit-box-shadow: 15px 15px 7px rgb(253, 253, 253), -15px -15px 7px rgb(253, 253, 253);
           box-shadow: 15px 15px 7px rgb(253, 253, 253), -15px -15px 7px rgb(253, 253, 253);
+  overflow: hidden; /* Скрываем все, что выходит за пределы контейнера */
+  white-space: nowrap; /* Запрещаем перенос текста */
 }
 .main__order--order h3 {
   text-transform: uppercase;
@@ -1068,6 +1070,8 @@ input::placeholder {
 }
 .footer__box--adress {
   text-align: center;
+  overflow: hidden; /* Скрываем все, что выходит за пределы контейнера */
+  white-space: nowrap; /* Запрещаем перенос текста */
 }
 .footer__box--adress p {
   font-size: 1.875rem;
@@ -1109,16 +1113,6 @@ input::placeholder {
   text-transform: uppercase;
   color: rgb(11, 11, 11);
 }
-@media (min-width: 120rem) {
-  .footer__box--back button {
-    width: 120px;
-  }
-}
-@media (max-width: 120rem) and (max-width: 1920px) {
-  .footer__box--back button {
-    width: calc(300px + -306 * (100vw - 767px) / 1920);
-  }
-}
 .other {
   font-size: 1.875rem;
   font-weight: 600;
@@ -1129,6 +1123,33 @@ input::placeholder {
   text-shadow: 5px 5px 5px rgba(64, 6, 237, 0.611), -5px -5px 5px yellow;
 }
 
+.run {
+  display: inline-block;
+  -webkit-animation: marquee-animation 10s linear infinite;
+          animation: marquee-animation 10s linear infinite;
+}
+
+/* Анимация для бегущего текста */
+@-webkit-keyframes marquee-animation {
+  0% {
+    -webkit-transform: translateX(100%);
+            transform: translateX(100%); /* Начало анимации: текст справа за пределами */
+  }
+  100% {
+    -webkit-transform: translateX(-100%);
+            transform: translateX(-100%); /* Конец анимации: текст уходит слева */
+  }
+}
+@keyframes marquee-animation {
+  0% {
+    -webkit-transform: translateX(100%);
+            transform: translateX(100%); /* Начало анимации: текст справа за пределами */
+  }
+  100% {
+    -webkit-transform: translateX(-100%);
+            transform: translateX(-100%); /* Конец анимации: текст уходит слева */
+  }
+}
 .enet--icon {
   display: -webkit-box;
   display: -ms-flexbox;
