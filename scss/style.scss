@@ -231,11 +231,11 @@ $maxWidth: 1920;
 		border: 1px solid rgb(175, 5, 222);
 		border-radius: 50%;
 		@include adaptiveValue("width", 170, 85);
-		@include adaptiveValue("height", 170, 80);
-		top: -10px;
-		left: -10px;
+		@include adaptiveValue("height", 170, 85);
+		top: -12px;
+		left: -12px;
 		@media (max-width: toRem(720)) {
-			width: toRem(65);
+			width: toRem(70);
 			height: toRem(70);
 		}
 	}
@@ -244,7 +244,24 @@ $maxWidth: 1920;
 .hero--img img {
 	width: 100%;
 	border-radius: 50%;
+	animation: animationes 10s infinite;
 }
+
+/* Анимация  */
+@keyframes animationes {
+	0% {
+		rotate: 0deg;
+	}
+
+	50% {
+		rotate: 360deg;
+	}
+
+	100% {
+		rotate: 0deg;
+	}
+}
+
 .hero__title--img {
 }
 .hero__title--img img {
@@ -385,11 +402,6 @@ $maxWidth: 1920;
 			15px 15px 7px rgb(253, 253, 253),
 			-15px -15px 7px rgb(253, 253, 253);
 
-
-//  бегущий текст */
-			overflow: hidden; /* Скрываем все, что выходит за пределы контейнера */
-			white-space: nowrap; /* Запрещаем перенос текста */
-
 		& h3 {
 			// font-size: toRem(50);
 			@include adaptiveValue(" font-size", 50, 34);
@@ -406,8 +418,6 @@ $maxWidth: 1920;
 				-1px -1px 3px black,
 				-2px -2px 1px rgb(249, 250, 248),
 				-3px -3px 3px black;
-
-			
 		}
 		& form {
 			margin-top: toRem(30);
@@ -853,10 +863,10 @@ input {
 }
 
 // .................................  /* Анимация для бегущего текста */ ....................................................................
-.run {
-	display: inline-block;
-	animation: marquee-animation 10s linear infinite;
-}
+// .run {
+// 	display: inline-block;
+// 	animation: marquee-animation 10s linear infinite;
+// }
 
 /* Анимация для бегущего текста */
 @keyframes marquee-animation {

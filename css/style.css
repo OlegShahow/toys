@@ -433,8 +433,8 @@ h1, h2, h3, h4, h5, h6 {
   position: absolute;
   border: 1px solid rgb(175, 5, 222);
   border-radius: 50%;
-  top: -10px;
-  left: -10px;
+  top: -12px;
+  left: -12px;
 }
 @media (min-width: 120rem) {
   .hero--img::after {
@@ -453,12 +453,12 @@ h1, h2, h3, h4, h5, h6 {
 }
 @media (max-width: 120rem) and (max-width: 1920px) {
   .hero--img::after {
-    height: calc(80px + 153 * (100vw - 767px) / 1920);
+    height: calc(85px + 144.5 * (100vw - 767px) / 1920);
   }
 }
 @media (max-width: 45rem) {
   .hero--img::after {
-    width: 4.0625rem;
+    width: 4.375rem;
     height: 4.375rem;
   }
 }
@@ -466,8 +466,33 @@ h1, h2, h3, h4, h5, h6 {
 .hero--img img {
   width: 100%;
   border-radius: 50%;
+  -webkit-animation: animationes 10s infinite;
+          animation: animationes 10s infinite;
 }
 
+/* Анимация  */
+@-webkit-keyframes animationes {
+  0% {
+    rotate: 0deg;
+  }
+  50% {
+    rotate: 360deg;
+  }
+  100% {
+    rotate: 0deg;
+  }
+}
+@keyframes animationes {
+  0% {
+    rotate: 0deg;
+  }
+  50% {
+    rotate: 360deg;
+  }
+  100% {
+    rotate: 0deg;
+  }
+}
 .main__galery {
   padding-bottom: 1.875rem;
 }
@@ -639,8 +664,6 @@ h1, h2, h3, h4, h5, h6 {
   border-radius: 10px;
   -webkit-box-shadow: 15px 15px 7px rgb(253, 253, 253), -15px -15px 7px rgb(253, 253, 253);
           box-shadow: 15px 15px 7px rgb(253, 253, 253), -15px -15px 7px rgb(253, 253, 253);
-  overflow: hidden; /* Скрываем все, что выходит за пределы контейнера */
-  white-space: nowrap; /* Запрещаем перенос текста */
 }
 .main__order--order h3 {
   text-transform: uppercase;
@@ -1121,12 +1144,6 @@ input::placeholder {
   margin-bottom: 2.5rem;
   color: rgb(6, 6, 6);
   text-shadow: 5px 5px 5px rgba(64, 6, 237, 0.611), -5px -5px 5px yellow;
-}
-
-.run {
-  display: inline-block;
-  -webkit-animation: marquee-animation 10s linear infinite;
-          animation: marquee-animation 10s linear infinite;
 }
 
 /* Анимация для бегущего текста */
